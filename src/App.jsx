@@ -1,16 +1,23 @@
 import Navbar from './components/Navbar.jsx'
-import Main from './components/Main.jsx'
+import Hero from './components/Hero.jsx'
+import About from './components/About.jsx'
+import Step from './components/Step.jsx'
 import Footer from './components/Footer.jsx'
-import './App.css'
 
 function App() {
 
   return (
-    <>
+    <div>
       <Navbar />
-      <Main />
+      <Hero />
+      <Step />
+      <About />
       <Footer />
-    </>
+    </div>
+
+
+
+
   )
 }
 
