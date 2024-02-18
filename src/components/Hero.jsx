@@ -6,12 +6,6 @@ const Hero = () => {
     const [link, setLink] = useState('');
     const qrCodeRef = useRef(null);
 
-    const handleGenerateQR = (event) => {
-        event.preventDefault();
-        // Aquí puedes llamar a tu función para generar el código QR con el link
-        console.log(`Generar QR para el link: ${link}`);
-    };
-
     const handleClear = () => {
         setLink('');
     };
@@ -38,29 +32,32 @@ const Hero = () => {
     };
 
     return (
-        <div className="bg-gray-200 py-32">
+        <div className="bg-gray-200 py-20 dark:bg-gray-900 dark:text-white">
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl font-bold mb-10 text-center">QRGenerator</h1>
-                <form onSubmit={handleSubmit} className="flex items-center mb-4">
-                    <label className="mr-2">
-                        Ingrese el link al que quiere hacer QR:
+                <form onSubmit={handleSubmit} className="mb-4">
+                    <div className="mb-2">
+                        <label htmlFor="link" className="block mb-1 text-center text-2xl pb-8">Ingrese el link al que quiere hacer QR:</label>
                         <input
                             type="text"
+                            id="link"
                             name="link"
-                            className="border border-gray-300 rounded px-4 py-2 focus:outline-none"
+                            value={link} 
+                            onChange={(e) => setLink(e.target.value)} // 
+                            className="border  rounded px-4 py-2 focus:outline-none block w-full dark:bg-gray-800 dark:text-gray-300"
                         />
-                    </label>
+                    </div>
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full"
                     >
                         Generar QR
                     </button>
                     {link && (
                         <button
                             type="button"
-                            onClick={handleClear}
-                            className="ml-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                            onClick={() => {handleClear(); setLink('');}} 
+                            className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full"
                         >
                             Limpiar
                         </button>
@@ -68,13 +65,13 @@ const Hero = () => {
                 </form>
                 {link && (
                     <div className="h-400">
-                        <h2 className="text-xl font-bold mb-2">Código QR generado:</h2>
-                        <div className="flex justify-center">
+                        <h2 className="text-xl font-bold mb-2 text-center py-5">Código QR generado:</h2>
+                        <div className="flex justify-center py-5">
                             <QRCode value={link} size={200} ref={qrCodeRef} />
                         </div>
                         <button
                             onClick={handleDownloadQR}
-                            className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 align-center"
+                            className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full"
                         >
                             Descargar QR
                         </button>

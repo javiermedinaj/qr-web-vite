@@ -1,29 +1,38 @@
-import React from 'react';
-import logo from '../assets/medina.png';
+import { useEffect, useState } from "react";
+import { RiMoonLine, RiSunLine } from 'react-icons/ri';
 
 const Navbar = () => {
-    return (
-        <nav className="bg-white border-gray-200">
-            <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-                <a href="#" className="flex items-center">
-                    <img src={logo} className="h-8 mr-3" alt="Flowbite Logo" />
-                </a>
+  const [theme, setTheme] = useState(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
 
-                <div className="hidden md:block">
-                    <ul className="flex space-x-8">
-                        <li>
-                            <a
-                                href="#about"
-                                className="text-gray-900 rounded hover:bg-gray-100 hover:text-blue-300 p-2"
-                            >
-                                QRGenerator
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    );
+    return "light";
+  });
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.querySelector("html").classList.add("dark");
+    } else {
+      document.querySelector("html").classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleChangeTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <nav className="bg-gray-500 text-white p-4 flex justify-end dark:text-gray-300 dark:bg-gray-900">
+      <button
+        className="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded"
+        onClick={handleChangeTheme}
+      >
+        {theme === "light" ? <RiMoonLine className="w-5 h-5" /> : <RiSunLine className="w-5 h-5" />}
+        {theme === "light" ? "" : ""}
+      </button>
+    </nav>
+  );
 };
 
 export default Navbar;

@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div className="pt-20 pb-20">
+        <div className="px-10 py-20 dark:bg-gray-900 dark:text-white ">
             <h2 className="text-3xl font-bold mb-4 text-center  py-5">Generador de Códigos QR</h2>
             <p className="text-lg">
                 Bienvenido al generador de códigos QR. Con esta herramienta, puedes crear códigos QR para
