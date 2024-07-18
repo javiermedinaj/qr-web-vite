@@ -32,7 +32,7 @@ const Hero = () => {
     };
 
     return (
-        <div className="bg-gray-200 py-20 dark:bg-gray-900 dark:text-white">
+        <div className="bg-gray-200 py-20 dark:bg-black dark:text-white">
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl font-bold mb-10 text-center">QRGenerator</h1>
                 <form onSubmit={handleSubmit} className="mb-4">

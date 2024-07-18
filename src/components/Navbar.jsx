@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-500 text-white p-4 flex justify-end dark:text-gray-300 dark:bg-gray-900">
+    <nav className="bg-gray-200 text-white p-4 flex justify-end dark:text-gray-300 dark:bg-black">
       <button
         className="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded"
         onClick={handleChangeTheme}
