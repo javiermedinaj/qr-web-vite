@@ -60,4 +60,4 @@ Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request p
 
 ## Contacto
 
-Desarrollado por Javier Medina. Puedes contactarme en [tu-email@example.com](mailto:javier_j_medina@hotmail.com).
+Desarrollado por Javier Medina. Puedes contactarme en [javier_j_medina@hotmail.com](mailto:javier_j_medina@hotmail.com).
